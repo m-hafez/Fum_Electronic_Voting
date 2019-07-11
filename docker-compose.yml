@@ -1,0 +1,54 @@
+version: "3.6"
+services:
+  mongo:
+    image: mongo
+    networks:
+      - mynetwork
+    container_name: mongo
+  election_manager_db:
+    image: ardalanfp/election_manager_db
+    networks:
+      - mynetwork      
+    container_name: electionManagerDb
+  election_portal_db:
+    image: ardalanfp/election_portal_db
+    networks:
+      - mynetwork         
+    container_name:
+      electionPortalDb
+  election_ui:
+    image: sayid/election_ui
+    networks:
+      - mynetwork
+    ports:
+      - "8013:9090"
+    container_name: election_ui
+  auth:
+    image: sayid/auth
+    networks:
+      - mynetwork
+    container_name: auth
+    depends_on:
+      - mongo
+  fum_election_electionmanager:
+    image: mhafezyari/election-manager
+    ports:
+      - "8085:8080"    
+    networks:
+      - mynetwork
+    container_name: election-manager
+    depends_on:
+      - election_manager_db       
+  fum_election_electionportal:
+    image: ardalanfp/fum_election_electionportal
+    ports:
+      - "8086:8090"
+    networks:
+      - mynetwork
+    container_name: electionportal
+    depends_on:
+      - election_portal_db       
+
+networks:
+  mynetwork:
+    driver: bridge
