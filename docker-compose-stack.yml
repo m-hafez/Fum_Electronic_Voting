@@ -1,0 +1,120 @@
+version: "3.6"
+services:
+  visualizer:
+    image: dockersamples/visualizer
+    ports:
+      - "8010:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 30s    
+      placement:
+        constraints: [node.role == manager]
+      restart_policy:
+        condition: on-failure         
+      # resources:
+      #   limits:
+      #     cpus: "0.2"
+      #     memory: 200M        
+  electionmanager:
+    image: mhafezyari/election-manager
+    ports:
+      - "8011:8080"    
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 30s
+      restart_policy:
+        condition: on-failure 
+      # resources:
+      #   limits:
+      #     cpus: "0.2"
+      #     memory: 100M               
+  electionportal:
+    image: ardalanfp/fum_election_electionportal
+    ports:
+      - "8012:8090"
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 2
+        delay: 30s
+      restart_policy:
+        condition: on-failure   
+      # resources:
+      #   limits:
+      #     cpus: "0.2"
+      #     memory: 200M             
+  electionManagerDb:
+    image: ardalanfp/election_manager_db
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 5s
+      restart_policy:
+        condition: on-failure
+      # resources:
+      #   limits:
+      #     cpus: "0.2"
+      #     memory: 200M                
+  electionPortalDb:
+    image: ardalanfp/election_portal_db
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 5s
+      restart_policy:
+        condition: on-failure
+      # resources:
+      #   limits:
+      #     cpus: "0.2"
+      #     memory: 200M                
+  auth:
+    image: sayid/auth
+    ports:
+      - "8014:2000"
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 5s
+      restart_policy:
+        condition: on-failure
+      # resources:
+      #   limits:
+      #     cpus: "0.2"
+      #     memory: 200M                
+  election_ui:
+    image: sayid/election_ui
+    ports:
+      - "8013:9090"
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 20s
+      restart_policy:
+        condition: on-failure
+      # resources:
+      #   limits:
+      #     cpus: "0.2"
+      #     memory: 200M                
+  mongo:
+    image: mongo
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 5s
+      restart_policy:
+        condition: on-failure 
+      # resources:
+      #   limits:
+      #     cpus: "0.2"
+      #     memory: 200M               
