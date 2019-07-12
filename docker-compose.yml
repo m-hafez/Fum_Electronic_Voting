@@ -33,16 +33,16 @@ services:
   fum_election_electionmanager:
     image: mhafezyari/election-manager
     ports:
-      - "8085:8080"    
+      - "8011:8080"    
     networks:
       - mynetwork
-    container_name: election-manager
+    container_name: electionmanager
     depends_on:
       - election_manager_db       
   fum_election_electionportal:
     image: ardalanfp/fum_election_electionportal
     ports:
-      - "8086:8090"
+      - "8012:8090"
     networks:
       - mynetwork
     container_name: electionportal
