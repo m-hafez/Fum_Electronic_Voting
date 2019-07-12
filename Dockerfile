@@ -8,4 +8,4 @@ RUN mvn clean
 RUN  mvn install -DskipTests
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","/home/app/target/electionmanager-1.0.jar"]
+ENTRYPOINT ["java","-jar","/home/app/target/electionmanager-2.0.jar"]
