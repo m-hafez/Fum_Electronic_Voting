@@ -25,6 +25,8 @@ services:
     container_name: election_ui
   auth:
     image: sayid/auth
+    ports:
+      - "8010:2000"
     networks:
       - mynetwork
     container_name: auth
@@ -33,7 +35,7 @@ services:
   fum_election_electionmanager:
     image: mhafezyari/election-manager
     ports:
-      - "8011:8080"    
+      - "8011:8080"
     networks:
       - mynetwork
     container_name: electionmanager

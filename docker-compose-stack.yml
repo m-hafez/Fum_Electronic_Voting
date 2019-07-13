@@ -52,7 +52,7 @@ services:
   electionManagerDb:
     image: ardalanfp/election_manager_db
     deploy:
-      replicas: 1
+      replicas: 2
       update_config:
         parallelism: 2
         delay: 5s
@@ -65,7 +65,7 @@ services:
   electionPortalDb:
     image: ardalanfp/election_portal_db
     deploy:
-      replicas: 1
+      replicas: 2
       update_config:
         parallelism: 2
         delay: 5s
@@ -108,7 +108,7 @@ services:
   mongo:
     image: mongo
     deploy:
-      replicas: 1
+      replicas: 2
       update_config:
         parallelism: 2
         delay: 5s
