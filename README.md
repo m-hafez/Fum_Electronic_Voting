@@ -6,16 +6,16 @@
      - 9713430082
      
 <i>@</i> Ferdowsi University of Mashhad - 2019   
-##Resources
+## Resources
 We update our old Election-Manager code, and it now is fully compatible with 
 Fum-electronic voting.
   - Source code of Fum-election-manager on GitHub
     - https://github.com/m-hafez/Election-Manager
   - Docker image of Fum-election-manager on DockerHub
     - https://hub.docker.com/r/mhafezyari/election-manager
-##Dockerfile    
+## Dockerfile    
 Our app Expose on 8080 port
-##docker-compose
+## docker-compose
 The images list needed for run Fum-election with docker-compose on a single node
 1. https://hub.docker.com/r/ardalanfp/election_portal_db
 2. https://hub.docker.com/r/ardalanfp/election_manager_db
@@ -49,7 +49,7 @@ so in docker-compose file, the mhafezyari/election-manager service declare as de
      | sayid/auth|2000   |  8010   |
    - Set Mapped Port is necessary for see UserInterface in browser. 
    - Other Mapped port just for test Apis
-##docker-swarm
+## docker-swarm
 For run containers on cluster we use docker-swarm that is orchestration tool for 
 manage and scheduling container on cluster.
 initially we create 3 docker-machine with virtualbox on a laptop, and deployed the containers on 
