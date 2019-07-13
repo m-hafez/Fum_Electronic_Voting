@@ -43,12 +43,12 @@ so in docker-compose file, the mhafezyari/election-manager service declare as de
     ```            
  - Ports
  
- | container| Expose Port |   Mapped Port     |
- | :---------| :--------: |:-----:|
- | mhafezyari/election-manager| 8080 |  8011   |
- | sayid/election_ui| 9090  |   8013  |
- | ardalanfp/fum_election_electionportal | 8090  |  8012   |
- | sayid/auth|2000   |  8010   |
+     | container| Expose Port |   Mapped Port     |
+     | :---------| :--------: |:-----:|
+     | mhafezyari/election-manager| 8080 |  8011   |
+     | sayid/election_ui| 9090  |   8013  |
+     | ardalanfp/fum_election_electionportal | 8090  |  8012   |
+     | sayid/auth|2000   |  8010   |
    - Set Mapped Port is necessary for see UserInterface in browser. 
    - Other Mapped port just for test Apis
 ## docker-swarm
@@ -70,24 +70,24 @@ Also for monitoring the cluster we add visualizer container in modified docker-c
 - https://hub.docker.com/r/dockersamples/visualizer
 For meet fault tolerance and reliability and also realize the concept of Cloud, we up more than one some containers in cluster.
 
- | container|  Replicas |   
- | :--------- | :-------:|
- | mhafezyari/election-manager| 2 |  
- | sayid/election_ui| 2  |  
- | ardalanfp/fum_election_electionportal | 3  | 
- | sayid/auth|2   |  
- | dockersamples/visualizer|1   |
- | ardalanfp/election_manager_db|1   |
- | ardalanfp/election_portal_db|1   |
- | mongo|1   |
+     | container|  Replicas |   
+     | :--------- | :-------:|
+     | mhafezyari/election-manager| 2 |  
+     | sayid/election_ui| 2  |  
+     | ardalanfp/fum_election_electionportal | 3  | 
+     | sayid/auth|2   |  
+     | dockersamples/visualizer|1   |
+     | ardalanfp/election_manager_db|1   |
+     | ardalanfp/election_portal_db|1   |
+     | mongo|1   |
 - Ports and replicas
  
- | container| Expose Port |   Mapped Port     |
- | :---------| :--------: |:-----:|
- | mhafezyari/election-manager| 8080 |  8011   |
- | sayid/election_ui| 9090  |   8013  |
- | ardalanfp/fum_election_electionportal | 8090  |  8012   |
- | sayid/auth|2000   |  8014   |
- | dockersamples/visualizer|2000   |  8010   |
+     | container| Expose Port |   Mapped Port     |
+     | :---------| :--------: |:-----:|
+     | mhafezyari/election-manager| 8080 |  8011   |
+     | sayid/election_ui| 9090  |   8013  |
+     | ardalanfp/fum_election_electionportal | 8090  |  8012   |
+     | sayid/auth|2000   |  8014   |
+     | dockersamples/visualizer|2000   |  8010   |
    - Set Mapped Port is necessary for see UserInterface in browser. 
    - Other Mapped port just for test Apis  
