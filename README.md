@@ -1,9 +1,7 @@
 # FUM-Electronic Voting
 <i>By:</i>
    - <b>MohammadHafez Yari</b>
-     - 9713430242 
    - <b>Maziar Baradaran Salmani</b>
-     - 9713430082
      
 <i>@</i> Ferdowsi University of Mashhad - 2019   
 ## Resources
