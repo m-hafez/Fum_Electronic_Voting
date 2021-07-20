@@ -1,9 +1,5 @@
 # FUM-Electronic Voting
-<i>By:</i>
-   - <b>MohammadHafez Yari</b>
-   - <b>Maziar Baradaran Salmani</b>
-     
-<i>@</i> Ferdowsi University of Mashhad - 2019   
+An electronic voting system based on Dockerized micro-services.
 ## Resources
 We update our old Election-Manager code, and it now is fully compatible with 
 Fum-electronic voting.
